@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astro Wheel</title>
+    <style>
+       
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        body{
+            background-color: rgb(1, 1, 56);
+        }
+        .universe {
+            display: grid;
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin: 400px auto;
+            
+            
+            animation: spin 20s linear infinite;
+        }
+        
+        .universe > {
+            grid-column: 1;
+            grid-row: 1;
+            align-self: center;
+            justify-self: center;
+        }
+        #circle {
+            width: 300px;
+            height: 300px;
+            background-color: gold;
+            border: 1px black solid;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        #moonmiddle {
+            z-index: 4;
+        }
+        #moonmiddle img {
+            width: 150px;
+            height: 150px;
+            display: block;
+        }
+        .line1 {
+            position: absolute;
+            width: 1px;
+            height: 600px;
+            background-color: white;
+            transform: rotate(calc(var(--i) * 30deg));
+        }
+        .zodiac-icon {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            z-index: 3;
+            left: 50%;
+            top: 50%;
+            margin-left: -25px; 
+            margin-top: -25px;  
+            transform: rotate(calc((var(--i) * 30deg) + 15deg)) translateY(-220px);
+        }
+        .zodiac-icon img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            cursor: pointer;
+            user-select: none;
+            transform: rotate(calc((var(--i) * -30deg) - 15deg));
+        }
+    </style>
+</head>
+<body>
+    <div class="universe">
+        <div id="circle"></div>
+        <div class="line1" style="--i: 0;"></div>
+        <div class="line1" style="--i: 1;"></div>
+        <div class="line1" style="--i: 2;"></div>
+        <div class="line1" style="--i: 3;"></div>
+        <div class="line1" style="--i: 4;"></div>
+        <div class="line1" style="--i: 5;"></div>
+        <div class="line1" style="--i: 6;"></div>
+        <div class="line1" style="--i: 7;"></div>
+        <div class="line1" style="--i: 8;"></div>
+        <div class="line1" style="--i: 9;"></div>
+        <div class="line1" style="--i: 10;"></div>
+        <div class="line1" style="--i: 11;"></div>
+        <div class="zodiac-icon" style="--i: 0;"><img src="aries.png" class="image"></div>
+        <div class="zodiac-icon" style="--i: 1;"><img src="taurus.png" alt="Taurus"></div>
+        <div class="zodiac-icon" style="--i: 2;"><img src="gemini.png" alt="Gemini"></div>
+        <div class="zodiac-icon" style="--i: 3;"><img src="cancer.png" alt="Cancer"></div>
+        <div class="zodiac-icon" style="--i: 4;"><img src="leo.png" alt="Leo"></div>
+        <div class="zodiac-icon" style="--i: 5;"><img src="virgo.png" alt="Virgo"></div>
+        <div class="zodiac-icon" style="--i: 6;"><img src="libra.png" alt="Libra"></div>
+        <div class="zodiac-icon" style="--i: 7;"><img src="scorpio.png" alt="Scorpio"></div>
+        <div class="zodiac-icon" style="--i: 8;"><img src="sagittarius.png" alt="Sagittarius"></div>
+        <div class="zodiac-icon" style="--i: 9;"><img src="capricorn.png" alt="Capricorn"></div>
+        <div class="zodiac-icon" style="--i: 10;"><img src="aquarius.png" alt="Aquarius"></div>
+        <div class="zodiac-icon" style="--i: 11;"><img src="pisces.png" alt="Pisces"></div>
+        <div id="moonmiddle">
+            <img src="moon.png" class="image">
+        </div>
+    </div>
+</body>
+</html>
